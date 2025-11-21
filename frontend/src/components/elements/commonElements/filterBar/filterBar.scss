@@ -1,0 +1,65 @@
+@import "../../variables";
+
+.filter-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+
+  .search-box {
+    background-color: $cancel-box-color;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 30px;
+    padding: 0;
+
+    .search-input {
+      background-color: transparent;
+      width: 100%;
+    }
+  }
+
+  .archived {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-right: 33px;
+
+    label {
+      font-weight: 400;
+      font-size: 15px;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      font-size: 12px;
+      border: 1px solid $check-box-color;
+      border-radius: 0;
+
+      &:checked {
+        background-color: $primary-color !important;
+      }
+
+      &::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        clip-path: polygon(73.01% 25.14%, 82.62% 32.94%, 45.75% 78.29%, 19.46% 56.91%, 26.13% 48.7%, 42.82% 62.27%);
+        transform: scale(0);
+        background-color: white;
+      }
+
+      &:checked::before {
+        transform: scale(1);
+      }
+    }
+  }
+}

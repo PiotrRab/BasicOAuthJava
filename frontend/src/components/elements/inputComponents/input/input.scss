@@ -1,0 +1,18 @@
+@import "../../variables";
+
+.input-field {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  margin-bottom: 20px;
+  .input-label{
+    color: $text-color-strong;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .input{
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    padding: 10px;
+  }
+}

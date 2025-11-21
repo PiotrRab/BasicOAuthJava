@@ -1,0 +1,12 @@
+@import '../../variables';
+
+.select-attributes {
+  font-weight: 400;
+  color: $text-color-strong;
+  font-size: 15px;
+  margin: -5px;
+  padding-bottom: 13px;
+  &.hidden{
+    display: none;
+  }
+}

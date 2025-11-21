@@ -1,0 +1,29 @@
+@import "../../variables";
+
+.search-box {
+  .search-input {
+    border: none;
+    &:focus{
+      outline: none;
+      box-shadow: none;
+      border: none;
+    }
+    &::placeholder {
+      font-size: 15px;
+      font-weight: 400;
+    }
+  }
+  &.estates{
+    width: 940px;
+    margin: 20px 30px;
+    padding: 0;
+    .search-input {
+      background-color: transparent;
+      width: 800px;
+    }
+    .icon.search{
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

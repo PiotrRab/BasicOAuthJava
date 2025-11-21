@@ -1,0 +1,23 @@
+@import "../../variables";
+
+
+.button {
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  gap: 10px;
+  &.login {
+    background: linear-gradient(120deg, #66a6ff, #89f7fe);
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.3s;
+    &:hover {
+      background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    }
+  }
+}
+

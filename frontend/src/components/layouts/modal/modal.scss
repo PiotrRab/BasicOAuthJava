@@ -1,0 +1,63 @@
+@import '../../elements/variables';
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(136, 136, 136, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  .modal-container {
+    width: 500px;
+    min-height: 200px;
+    background-color: $white-color;
+    overflow: hidden;
+    animation: slideDown 0.3s ease;
+  }
+  &.create-tenant{
+    display: flex;
+    flex-direction: column;
+    .modal-container{
+      width: 700px;
+      height: 850px;
+    }
+  }
+  &.edit-photo{
+    .modal-container{
+      width: 920px;
+      max-height: 850px;
+    }
+  }
+  &.delete{
+    .modal-container{
+      width: 500px !important;
+      min-height: 200px;
+    }
+  }
+  &.invoice{
+    .modal-container{
+      width: 750px;
+    }
+  }
+  &.expense{
+    .modal-container{
+      width: 750px;
+    }
+  }
+  &.payment{
+    .modal-container{
+      width: 750px;
+    }
+  }
+  &.info{
+    .modal-container{
+      width: 500px;
+    }
+  }
+}
+

@@ -1,0 +1,29 @@
+@import "src/components/elements/variables";
+
+.login-page {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #89f7fe, #66a6ff);
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    height: 400px;
+    width: 250px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: slideDown 0.8s ease;
+    .title{
+      font-size: 36px;
+      font-weight: 600;
+      color: $text-color-strong;
+    }
+    }
+  }

@@ -1,0 +1,146 @@
+@import "../../variables";
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+
+  &.save {
+    background-color: $save-box-color-hover;
+
+    svg {
+      align-items: center;
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &.edit {
+    background-color: $primary-color-hover;
+
+    svg {
+      align-items: center;
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &.add {
+    background-color: $primary-color-hover;
+
+    svg {
+      align-items: center;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &.delete {
+    background-color: $delete-box-color-hover;
+
+    svg {
+      align-items: center;
+
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &.nav {
+    width: 58px;
+    height: 58px;
+
+    svg {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  &.header {
+    height: 58px;
+
+  }
+
+  &.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-top: 7px;
+
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  &.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &.drop-down {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.select {
+    background-color: color-mix(in srgb, currentColor 25%, #ffffff 75%);
+    margin-top: 1px;
+    width: 18px;
+    height: 18px;
+  }
+
+  &.upload {
+    background-color: $primary-color-hover;
+  }
+
+  &.cancel-upload {
+    width: 12px;
+    height: 12px;
+  }
+
+  &.document {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+  }
+
+  &.next-year {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    background-color: $border-color;
+
+    svg {
+      margin-left: 5px;
+    }
+  }
+
+  &.prev-year {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    background-color: $border-color;
+
+    svg {
+      margin-left: 5px;
+    }
+  }
+
+  &.password-visibility {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,20 @@
+@import '../../variables';
+
+.button-container{
+  position: relative;
+}
+.upload-box{
+  padding: 20px;
+  background: white;
+  border: 1px solid $border-color;
+  top:48px;
+  right: 50px;
+  &.photos{
+    position:absolute;
+  }
+  &.document{
+    background: $input-box-color;
+    padding: 60px;
+    border: none;
+  }
+}

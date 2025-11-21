@@ -1,0 +1,83 @@
+@import '../../variables';
+
+.document-upload{
+  .dropzone {
+    background-color: $input-box-color;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+
+    .text {
+      font-weight: 400;
+      width: 292px;
+      font-size: 14px;
+      color: $text-color;
+      line-height: 2;
+      .browse{
+        text-decoration: underline;
+        color: $primary-color;
+      }
+    }
+
+    .no-preview{
+      padding: 60px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+  }
+  .preview-container {
+    .single-iteam {
+      background-color: $input-box-color;
+      display: flex;
+      flex-direction: row;
+      padding: 30px;
+      min-width: 500px;
+
+      img {
+        width: 55px;
+        height: 55px;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+        border: 1px solid $border-color;
+      }
+      .progress-wrapper{
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        min-width: 450px;
+        .label-box{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .upload-label{
+            font-size: 14px;
+            color: $text-color;
+            line-height: 2;
+          }
+        }
+
+
+        .progress-bar {
+          align-self:center;
+          min-width: 450px;
+          height: 7px;
+          background: rgba(0, 0, 0, 0.1);
+          .progress {
+            height: 100%;
+            background: $primary-color;
+            transition: width 0.3s ease-in-out;
+          }
+        }
+      }
+
+
+
+    }
+
+  }
+}

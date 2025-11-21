@@ -1,0 +1,16 @@
+@import '../../../elements/variables';
+
+
+.modal-header {
+  padding: 20px 0px 0px 30px;
+
+  .title {
+    color: $text-color-strong;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 33px;
+  }
+  &.edit-photo{
+    padding-bottom: 10px;
+  }
+}

@@ -1,0 +1,52 @@
+@import '../../variables';
+
+.textarea-field {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @media(max-width: 320px){
+        flex-direction: column;
+        align-items:flex-start;
+    }
+
+    .input-label {
+        font-weight: 400;
+        color: $text-color-strong;
+        font-size: 15px;
+        margin: -5px;
+        @media(max-width: 768px) {
+            min-width: 60px;
+            text-align: left;
+        }
+        label{
+            &.required::after {
+                content: '*';
+                margin-left: 3px;
+                color:red;
+            }
+        }
+    }
+
+    .description {
+        flex-grow: 1;
+        padding: 10px 10px;
+        border: 1px solid transparent;
+        background-color: $input-box-color;
+        width: 678px;
+        min-height: 150px;
+        resize: vertical;
+        font-family: "Poppins", sans-serif;
+        color: $text-color-strong;
+        &:focus {
+            outline: none;
+            border-color: transparent;
+        }
+        &.error{
+            border: red solid 1px;
+        }
+        &.disabled{
+            background-color: transparent;
+        }
+    }
+}

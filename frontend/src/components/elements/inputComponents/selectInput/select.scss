@@ -1,0 +1,243 @@
+@import '../../variables';
+
+
+.select {
+  background: $input-box-color;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+
+  &.disabled {
+    cursor: default;
+    background-color: transparent;
+  }
+
+  label {
+    font-weight: 400;
+    color: $text-color-light;
+    font-size: 12px;
+    margin-top: 6px;
+    white-space: nowrap;
+    min-width: 120px;
+    margin-left: 15px;
+  }
+
+  .options {
+    position: absolute;
+    background-color: $input-box-color;
+    top: 97%;
+    left: 0;
+    right: 0;
+    margin-left: 15px;
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 1000;
+    display: none;
+  }
+
+  &.open {
+    .options {
+      display: block;
+    }
+  }
+
+
+  &.rental-status {
+    cursor: default;
+    height: 58px;
+    border: transparent solid 1px;
+    box-sizing: border-box;
+
+    &.disabled {
+      cursor: default;
+      button{
+        cursor: default;
+      }
+      span {
+        cursor: default;
+        margin: 0 !important;
+      }
+
+      .drop-down {
+        display: none;
+      }
+    }
+
+
+    .selected-option {
+      position: relative;
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      justify-content: center;
+
+      span {
+        margin-right: 22px;
+      }
+
+      .drop-down {
+        position: absolute;
+        right: 5px;
+      }
+
+      &.rented {
+        background-color: $select-status-rented;
+        color: $select-status-rented-text
+      }
+
+      &.repair {
+        background-color: $select-status-repair;
+        color: $select-status-repair-text
+      }
+
+      &.free {
+        background-color: $select-status-free;
+        color: $select-status-free-text
+      }
+    }
+
+
+    ul {
+      width: 60px;
+
+      li {
+        font-weight: 700;
+        width: 95px;
+        padding: 4px 5px;
+        font-size: 15px;
+        color: $text-color-strong;
+        display: flex;
+        justify-content: center;
+
+        &.rented {
+          background-color: $select-status-rented;
+          color: $select-status-rented-text
+        }
+
+        &.repair {
+          background-color: $select-status-repair;
+          color: $select-status-repair-text
+        }
+
+        &.free {
+          background-color: $select-status-free;
+          color: $select-status-free-text
+        }
+      }
+    }
+  }
+
+  &.tenants {
+    .selected-option {
+      padding-bottom: 3px;
+      font-size: 14px;
+
+    }
+
+    ul.options {
+      margin: 0;
+
+      li {
+        padding: 4px 15px;
+        margin: 0;
+        border-bottom: 1px solid $border-color;
+        font-size: 14px;
+        color: $text-color-strong;
+        display: flex;
+        justify-content: space-between;
+
+        &:first-child {
+          border-top: 1px solid $border-color;
+          color: $save-box-color;
+        }
+
+        &:last-child {
+          color: $text-color-light;
+        }
+      }
+    }
+  }
+  &.invoice-select{
+    background-color: $input-box-color;
+    span{
+      color: $text-color-strong;
+    }
+    button{
+      background-color: transparent;
+      margin-right: 0;
+      .label-box{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 600px;
+        padding-left: 10px;
+        .date{
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+    .selected-option {
+      padding-bottom: 3px;
+      font-size: 14px;
+    }
+    .options {
+      margin-left: 0;
+      padding-right: 0;
+      .label-box{
+        font-size: 14px;
+        margin-left: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 600px;
+        padding: 3px 8px;
+        .date{
+          display: flex;
+          justify-content: flex-end;
+        }
+
+      }
+      li{
+        border-bottom: 1px solid $border-color;
+        padding: 2px 0;
+        &:hover{
+          background-color: $input-box-hover;
+        }
+        &:first-child {
+          border-top: 1px solid $border-color;
+        }
+
+      }
+    }
+    &.disabled {
+      background-color: transparent;
+      cursor: default;
+      label{
+        margin-left: 0;
+      }
+      button{
+        background-color: transparent;
+        margin-left: 0;
+        padding-left: 0;
+        cursor: default;
+        background-color: transparent;
+        .icon{
+          display: none;
+        }
+        .label-box{
+          padding-left: 0;
+          .date{
+            display: none;
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+

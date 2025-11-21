@@ -1,0 +1,360 @@
+@import '../../variables';
+
+.table {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: $white-color;
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+
+  thead {
+    border-bottom: 2px solid $border-color;
+
+    tr {
+      background-color: $white-color;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  th, td {
+    padding: 10px 75px 10px 50px;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  tbody {
+    tr {
+      background-color: $white-color;
+      border-bottom: 1px solid $border-color;
+
+      &:hover {
+        background-color: $input-box-color;
+        cursor: pointer;
+      }
+    }
+
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  th {
+    color: $text-color-light;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &.options-row {
+      text-align: right;
+      width: 50px;
+    }
+  }
+
+  td {
+    color: $text-color-strong;
+    font-weight: 400;
+  }
+
+  &.attributes {
+    margin-top: 10px;
+
+    th {
+      display: none;
+    }
+
+    tbody {
+      tr {
+        cursor: default;
+
+        td {
+          background-color: $input-box-color;
+          padding: 0 20px;
+
+          &.name {
+            width: 90%;
+          }
+
+          &.options {
+            justify-content: flex-end;
+            width: 10%;
+          }
+        }
+      }
+    }
+  }
+
+  &.estates {
+    tr {
+      td, th {
+        padding: 5px 25px;
+
+        &.estate-address {
+          padding-left: 50px;
+          width: 400px;
+        }
+
+        &.tenant {
+          width: 240px;
+        }
+
+        &.price {
+          width: 80px;
+        }
+
+        &.status {
+          padding: 0 25px;
+          width: 80px;
+
+          .rental-status {
+            padding: 5px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 13px;
+
+            &.rented {
+              background-color: $select-status-rented;
+              color: $select-status-rented-text
+            }
+
+            &.repair {
+              background-color: $select-status-repair;
+              color: $select-status-repair-text
+            }
+
+            &.free {
+              background-color: $select-status-free;
+              color: $select-status-free-text
+            }
+          }
+        }
+
+        &.options-row {
+          padding-right: 25px;
+          width: 50px;
+        }
+      }
+    }
+  }
+
+  &.tenants {
+    tr {
+      td, th {
+        &.status {
+          text-align: center;
+          font-weight: 700;
+          font-size: 13px;
+          width: 70px;
+
+          .free {
+            padding: 5px 0;
+            background-color: $status-free-tenant;
+            color: $status-free-tenant-text
+          }
+
+          .archived {
+            padding: 5px 0;
+            background-color: $select-status-free;
+            color: $select-status-free-text
+          }
+
+          .renting {
+            padding: 5px 0;
+            background-color: $select-status-rented;
+            color: $select-status-rented-text
+          }
+        }
+      }
+    }
+  }
+
+  &.rental-history, &.attachments {
+    tr {
+      &:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+    }
+
+    td {
+      padding: 15px 75px 15px 50px
+    }
+
+    .start-date, .end-date {
+      width: 300px;
+    }
+  }
+
+  &.attachments {
+    box-sizing: border-box;
+
+    .name {
+      width: 50%;
+      @media screen and (max-width: 1280px) {
+        padding: 0px 20px 10px 10px;
+      }
+    }
+
+    .photo {
+      padding: 0;
+
+      img {
+        margin-top: 5px;
+        object-fit: cover;
+        align-self: center;
+        height: 70px;
+        width: 70px;
+      }
+    }
+
+    .options {
+      width: 40px;
+      @media screen and (max-width: 1280px) {
+        padding: 10px 10px;
+      }
+    }
+
+    .start-date {
+      width: 20%;
+      @media screen and (max-width: 1750px) {
+        width: 10%;
+      }
+
+    }
+
+    thead {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+
+      th {
+        padding: 10px 65px 10px 50px;
+      }
+    }
+
+    tbody {
+      display: block;
+      height: 640px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: auto;
+      table-layout: fixed;
+
+      tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+
+        .start-date {
+          padding: 15px 70px 15px 50px;
+        }
+      }
+    }
+  }
+  &.payments{
+    margin: 0;
+    thead {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      th {
+        font-size: 14px;
+        color: $text-color-strong;
+        padding: 10px 10px 2px 10px;
+      }
+    }
+
+    tbody {
+      display: block;
+      max-height: 140px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: auto;
+      table-layout: fixed;
+
+      tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        &:hover {
+          background-color: transparent;
+          cursor: default;
+        }
+        td{
+          padding: 10px 10px 10px 10px;
+        }
+
+      }
+    }
+    .title{
+      width: 40%;
+    }
+    .remaining{
+      text-align: right;
+      width: auto;
+    }
+    .amount{
+      text-align: right;
+    }
+  }
+  &.invoices{
+    .status{
+      label{
+        display: none;
+      }
+      padding: 5px 0;
+    }
+    .options{
+      padding: 5px 0;
+    }
+    .name{
+      padding: 10px 35px 10px 20px;
+    }
+    .month{
+      padding: 10px 35px 10px 20px;
+    }
+    .amount{
+      padding: 10px 35px 10px 20px;
+    }
+  }
+  &.balance{
+    thead{
+      th{
+        text-align: right;
+        &.month{
+          text-align: left;
+        }
+      }
+
+    }
+    tbody{
+      tr{
+        cursor: default;
+        &:hover{
+          background-color: transparent;
+        }
+        td{
+          padding:  9px 75px 9px 50px;
+          text-align: right;
+          &.month{
+            text-align: left;
+          }
+        }
+      }
+      .year-summary{
+        background-color: $balance-table-year-summary-border!important;
+        td{
+          border-top: 1px solid $text-color-strong;
+          font-weight: 600;
+        }
+      }
+      .quarter-summary{
+        background-color: $balance-table-quarter-background!important;
+        td{
+          border-top: 2px solid $balance-table-quarter-border;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@import "../../variables";
+
+.field {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0;
+  &.name{
+    padding: 0px;
+    margin-left: 15px;
+    .label{
+      padding-bottom: 5px;
+    }
+  }
+  &.phone, &.email{
+    margin-left: 15px;
+    .label{
+      padding-bottom: 4px;
+    }
+  }
+
+  .label {
+    font-weight: 400;
+    color: #818386;
+    font-size: 12px;
+    margin-top: 6px;
+    white-space: nowrap;
+    min-width: 120px;
+  }
+
+  .value {
+  font-size: 14px;
+    font-weight: 400;
+    color: $text-color-strong;
+  }
+  &.tax{
+    padding: 0;
+    margin-left: 16px;
+    margin-top: 2px;
+  }
+  &.remaining{
+    width: 100%;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-top: 0;
+    gap:5px;
+    background-color: $input-box-color;
+    border-top: 2px solid $border-color;
+    .label{
+      font-size: 14px;
+      font-weight: 400;
+      color: $text-color-strong;
+      width: auto;
+      min-width: unset;
+    }
+    .value{
+      font-weight: 600;
+      font-size: 14px;
+      padding-right: 25px;
+
+    }
+  }
+  &.status{
+    span{
+      font-size: 13px;
+      font-weight: 700;
+      min-width: 100px;
+      text-align: center;
+      width: min-content;
+      padding: 5px 0;
+    }
+    &.issued{
+      span{
+        background-color: $payment-status-issued;
+        color: $payment-status-issued-text;
+      }
+    }
+    &.paid{
+      span{
+        background-color: $payment-status-partially;
+        color: $payment-status-partially-text;
+      }
+    }
+    &.partially-paid{
+      span{
+        background-color: $payment-status-paid;
+        color: $payment-status-paid-text;
+      }
+    }
+  }
+  &.vat{
+    padding: 0;
+  }
+}

@@ -1,0 +1,211 @@
+@import '../../variables';
+
+.react-datepicker__day--outside-month {
+  visibility: hidden;
+}
+.react-datepicker {
+  width: 317px;
+  left: -15px!important;
+  right: 0!important;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  font-family: inherit;
+  font-size: 14px;
+  color: $text-color-strong;
+  padding: 10px;
+  .react-datepicker__triangle{
+    display: none;
+  }
+  .react-datepicker__month-container{
+    width: 300px;
+  }
+  .react-datepicker__header {
+    background-color: #fff;
+    border-bottom: none;
+    padding-top: 4px;
+
+    .react-datepicker__current-month {
+      font-size: 18px;
+      font-weight: 600;
+      color: $text-color-strong;
+      margin-bottom: 12px;
+    }
+  }
+
+  .react-datepicker__day-names {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding-left: 15px;
+    width: 300px;
+    .react-datepicker__day-name {
+      color: $text-color-light;
+      font-weight: 400;
+      text-align: center;
+      width: 40px;
+      margin: 0;
+    }
+  }
+
+  .react-datepicker__navigation {
+    top: 15px;
+    &-icon{
+      &::before{
+        border-color: $text-color;
+        height: 6px;
+        width: 6px;
+      }
+    }
+    &--previous {
+      left: 16px;
+      border: none;
+    }
+    &--next {
+      right: 16px;
+      border: none;
+
+    }
+    &:hover *::before{
+      border-color: $text-color-strong;
+    }
+  }
+
+  .react-datepicker__month {
+    margin: 0 16px 16px 16px;
+    width: 100%;
+    &-text--keyboard-selected{
+      border-radius: 0 ;
+      background-color: $primary-color !important;
+      &:hover{
+        background-color: $primary-color-hover !important;
+      }
+    }
+    .react-datepicker__month-wrapper{
+      display: flex;
+      justify-content: space-around;
+      .react-datepicker__month-text{
+        padding: 5px;
+        border-radius: 0;
+      }
+    }
+    .react-datepicker__week {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+
+      .react-datepicker__day {
+        width: 2.6rem;
+        height: 2.2rem;
+        line-height: 2.2rem;
+        text-align: center;
+        border-radius: 0;
+        margin: 4px 0;
+        transition: background-color 0.2s ease;
+        &.start-date {
+          background-color: $primary-color !important;
+          color: #fff;
+        }
+        &--selected,
+        &--keyboard-selected {
+          background-color: $primary-color;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .date-range {
+    background-color: #e0e0e0 !important;
+  }
+
+  .react-datepicker__day--selected,
+  .react-datepicker__day--keyboard-selected {
+    background-color: $primary-color !important;
+    color: #fff;
+  }
+
+  .react-datepicker__day--start-date {
+    background-color: $primary-color-hover !important;
+    color: #333;
+  }
+}
+
+
+
+
+.input-date-field {
+  border: 1px solid transparent;
+  &.error{
+    border-color: red ;
+  }
+  .input-label {
+    font-weight: 400;
+    color: $text-color-light;
+    font-size: 12px;
+    margin-top: 7px;
+    white-space: nowrap;
+    min-width: 120px;
+    @media(max-width: 768px) {
+      min-width: 60px;
+      text-align: left;
+    }
+
+    label {
+      &.required::after {
+        content: '*';
+        margin-left: 3px;
+        color: red;
+      }
+    }
+  }
+
+  .input-date {
+    font-weight: 400;
+    color: $text-color-strong;
+    font-size: 14px;
+  }
+
+  &.disabled {
+    background-color: transparent;
+
+    input {
+      background-color: transparent;
+      border: none;
+    }
+    label {
+      &.required::after {
+        display: none;
+      }
+    }
+  }
+
+  &.expense, &.invoice, &.payment {
+    background-color: $input-box-color;
+    padding-left: 15px;
+
+    .input-date {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      font-weight: 400;
+      color: $text-color-strong;
+      font-size: 14px;
+
+      &:focus,
+      &:active {
+        outline: none !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+    }
+
+    &.disabled {
+      background-color: transparent;
+    }
+  }
+
+  &.invoice {
+    height: 58px;
+    &.disabled{
+      padding-left: 0;
+    }
+  }
+}

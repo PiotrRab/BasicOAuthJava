@@ -1,0 +1,39 @@
+@import "../../variables";
+
+.options{
+  display: flex;
+  flex-direction: row;
+  &.expenses, &.invoices{
+    flex-direction: row-reverse;
+  }
+  .button{
+    margin: 0;
+    width: 48px;
+    padding: 6px;
+    background-color: transparent;
+    &:hover{
+      background-color: transparent;
+    }
+    &.zoom{
+      width: 32px;
+    }
+    .icon{
+      &.edit{
+        background-color: transparent;
+        svg{
+          width: 20px;
+          height: 20px;
+          fill: $text-color;
+        }
+      }
+      &.delete{
+        background-color: transparent;
+      }
+      svg{
+        width: 20px;
+        height: 20px;
+        fill: $text-color;
+      }
+    }
+  }
+}

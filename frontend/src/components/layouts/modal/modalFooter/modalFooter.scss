@@ -1,0 +1,63 @@
+@import '../../../elements/variables';
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding: 15px 15px 25px 15px;
+
+  .button {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 120px;
+    height: 56px;
+    font-size: 15px;
+    font-weight: 500;
+    &.delete{
+      background-color: $modal-delete-color;
+    }
+  }
+  &.tenant{
+    padding: 55px 35px 25px 15px;
+    .button-container{
+      display: flex;
+      flex-direction: row;
+      .button{
+        width: 100%;
+        &.delete{
+          background-color:$delete-box-color;
+          &:hover{
+            background-color: $delete-box-color-hover;
+          }
+        }
+      }
+    }
+  }
+  &.edit-photo-footer{
+    .button-container{
+      display: flex;
+      flex-direction: row;
+      .button{
+        &.delete{
+          background-color: $delete-box-color;
+          width: 55px;
+          &:hover{
+            background-color: $delete-box-color-hover
+          }
+          .icon{
+            width: 40px;
+            height: 40px;
+            padding: 0 5px;
+          }
+        }
+        &.save{
+          padding-left: 10px;
+          justify-content: left;
+        }
+      }
+    }
+  }
+}

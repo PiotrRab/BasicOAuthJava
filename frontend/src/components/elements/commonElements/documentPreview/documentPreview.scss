@@ -1,0 +1,26 @@
+@import "../../variables";
+
+.document-preview{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0px;
+  margin-top:15px;
+  margin-bottom: 25px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $input-box-color;
+  .document-name-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10px;
+    gap:10px
+  }
+  .button-container{
+    padding-right: 10px;
+    .icon{
+      cursor: pointer;
+    }
+  }
+}
