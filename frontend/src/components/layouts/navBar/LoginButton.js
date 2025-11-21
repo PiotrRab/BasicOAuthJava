@@ -1,7 +1,7 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 import {POST} from "../../../appConfig/Endpoint";
-import Button from "../../elements/commonElements/button/Button";
+import Button from "../../elements/common/button/Button";
 
 const LoginButton = ({authenticated}) => {
     const navigate = useNavigate();

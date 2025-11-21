@@ -2,7 +2,7 @@ import React from 'react';
 import Input from "../../elements/inputComponents/input/Input";
 import {useFormik} from "formik";
 import './LoginPage.scss';
-import Button from "../../elements/commonElements/button/Button";
+import Button from "../../elements/common/button/Button";
 import {useNavigate} from "react-router-dom";
 import {POST} from "../../../appConfig/Endpoint";
 import MainLayout from "../../layouts/mainLayout/MainLayout";
