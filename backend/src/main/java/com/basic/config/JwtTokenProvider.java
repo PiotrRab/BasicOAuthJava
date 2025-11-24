@@ -1,13 +1,9 @@
 package com.basic.config;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Value;
+import jakarta.servlet.http.*;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -15,33 +11,15 @@ import java.util.Base64;
 import java.util.Date;
 
 @Component
+@AllArgsConstructor
 public class JwtTokenProvider {
 
-    @Value("${jwt.secret}")
-    private String jwtSecretBase64;
-
-    @Value("${jwt.refresh-secret}")
-    private String refreshSecretBase64;
-
-    @Value("${jwt.expiration}")
-    private long jwtExpirationMs;
-
-    @Value("${jwt.refresh-expiration}")
-    private long refreshExpirationMs;
-
-    private SecretKey getAccessKey() {
-        return Keys.hmacShaKeyFor(Base64.getDecoder().decode(jwtSecretBase64));
-    }
-
-    private SecretKey getRefreshKey() {
-        return Keys.hmacShaKeyFor(Base64.getDecoder().decode(refreshSecretBase64));
-    }
-
+    private final AppConfig appConfig;
     public String generateAccessToken(String email) {
         return Jwts.builder()
                 .setSubject(email)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationMs))
+                .setExpiration(new Date(System.currentTimeMillis() + appConfig.getJwtExpiration()))
                 .signWith(getAccessKey(), SignatureAlgorithm.HS512)
                 .compact();
     }
@@ -50,7 +28,7 @@ public class JwtTokenProvider {
         return Jwts.builder()
                 .setSubject(email)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + refreshExpirationMs))
+                .setExpiration(new Date(System.currentTimeMillis() + appConfig.getRefreshExpiration()))
                 .signWith(getRefreshKey(), SignatureAlgorithm.HS512)
                 .compact();
     }
@@ -109,4 +87,13 @@ public class JwtTokenProvider {
 
         return null;
     }
+
+    private SecretKey getAccessKey() {
+        return Keys.hmacShaKeyFor(Base64.getDecoder().decode(appConfig.getJwtSecret()));
+    }
+
+    private SecretKey getRefreshKey() {
+        return Keys.hmacShaKeyFor(Base64.getDecoder().decode(appConfig.getRefreshSecret()));
+    }
+
 }
