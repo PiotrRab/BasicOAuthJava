@@ -11,25 +11,30 @@ import java.util.UUID;
 @AllArgsConstructor
 public class UserController {
 
-    private final UserService service;
+    private final UserService userService;
 
     @GetMapping
     public List<UserResponse> getAll() {
-        return service.getAllUsers();
+        return userService.getAllUsers();
+    }
+
+    @PostMapping
+    public UserResponse addUser(@RequestBody UserRequest request) {
+        return userService.addUser(request);
     }
 
     @GetMapping("/{id}")
     public UserResponse getById(@PathVariable UUID id) {
-        return service.getUserById(id);
+        return userService.getUserById(id);
     }
 
     @PutMapping("/{id}")
     public UserResponse update(@PathVariable UUID id, @RequestBody UserRequest request) {
-        return service.updateUser(id, request);
+        return userService.updateUser(id, request);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable UUID id) {
-        service.deleteUser(id);
+        userService.deleteUser(id);
     }
 }

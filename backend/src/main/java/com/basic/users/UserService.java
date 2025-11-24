@@ -38,11 +38,7 @@ public class UserService implements UserDetailsService {
                 .build();
     }
 
-    public UserModel login(String email) {
-        return userRepository.findByEmail(email).orElseThrow(NullPointerException::new);
-    }
-
-    public UserResponse addUser(LoginRequest request) {
+    public UserResponse addUser(UserRequest request) {
         UserModel user = new UserModel();
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
