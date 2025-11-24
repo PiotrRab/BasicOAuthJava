@@ -11,10 +11,15 @@ const LoginButton = ({authenticated}) => {
     return (
         <div className="login-button">
             {!authenticated ?
-                <Button className="login-link" onClick={()=>navigate('/login')}>
-                    Zaloguj się
-                </Button> :
-                <Button className="login-link" onClick={logout}>
+                <div className="button-container">
+                    <Button className="login" onClick={()=>navigate('/register')}>
+                        Zarejstruj się
+                    </Button>
+                    <Button className="login" onClick={()=>navigate('/login')}>
+                        Zaloguj się
+                    </Button>
+                </div> :
+                <Button className="logout" onClick={logout}>
                     Wyloguj się
                 </Button>
             }

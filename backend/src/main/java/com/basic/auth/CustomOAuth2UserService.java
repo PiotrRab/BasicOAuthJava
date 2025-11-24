@@ -1,6 +1,5 @@
 package com.basic.auth;
 
-import com.basic.users.UserModel;
 import com.basic.users.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -20,8 +19,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         OAuth2User oauth2User = super.loadUser(userRequest);
 
         String email = oauth2User.getAttribute("email");
-
-        UserModel user = userService.login(email);
+        userService.login(email);
 
         return oauth2User;
     }

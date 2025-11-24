@@ -1,11 +1,17 @@
 package com.basic.users;
 
+import com.basic.auth.AccessCheck;
+import com.basic.auth.LoginRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +23,8 @@ import java.util.stream.Collectors;
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final AccessCheck accessCheck;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -25,23 +33,22 @@ public class UserService implements UserDetailsService {
 
         return User.builder()
                 .username(user.getEmail())
-                .password("")
-                .authorities(user.getRoles().stream()
-                        .map(role -> new SimpleGrantedAuthority( role.name()))
-                        .collect(Collectors.toList()))
+                .authorities(new SimpleGrantedAuthority(user.getRole().name()))
                 .build();
     }
 
     public UserModel login(String email) {
         return userRepository.findByEmail(email).orElseThrow(NullPointerException::new);
     }
-    public UserResponse getUserByEmail(String email) {
-        UserModel user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
 
+    public UserResponse addUser(LoginRequest request) {
+        UserModel user = new UserModel();
+        user.setEmail(request.getEmail());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRole(UserRole.USER);
+        userRepository.save(user);
         return mapToResponse(user);
     }
-
 
     public List<UserResponse> getAllUsers() {
         return userRepository.findAll()
@@ -57,17 +64,25 @@ public class UserService implements UserDetailsService {
     }
 
     public UserResponse updateUser(UUID id, UserRequest request) {
-        UserModel user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        UserModel currentUser = accessCheck.currentUser();
+        boolean authorized = accessCheck.isAdmin() || accessCheck.isOwner();
+
+        if (!currentUser.getId().equals(id) || !authorized) {
+            throw new RuntimeException("You can only update your own account.");
+        }
+
+        UserModel user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
 
         user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
-        user.setRoles(request.getRoles());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRole(UserRole.valueOf(request.getRole().toUpperCase()));
 
         return mapToResponse(userRepository.save(user));
     }
 
     public void deleteUser(UUID id) {
+        boolean authorized = accessCheck.isAdmin() || accessCheck.isOwner();
+        if (!authorized) throw new RuntimeException("You are not authorized to delete this user.");
         userRepository.deleteById(id);
     }
 
@@ -75,7 +90,7 @@ public class UserService implements UserDetailsService {
         return UserResponse.builder()
                 .id(user.getId())
                 .email(user.getEmail())
-                .roles(user.getRoles())
+                .role(user.getRole().name())
                 .build();
     }
 }

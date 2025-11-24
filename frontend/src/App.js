@@ -6,6 +6,7 @@ import WelcomePage from "./components/containers/welcomePage/WelcomePage";
 import { GET } from "./appConfig/Endpoint";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthenticated } from "./store";
+import RegisterPage from "./components/containers/loginPage/RegisterPage";
 
 const App = () => {
     const location = useLocation();
@@ -21,6 +22,7 @@ const App = () => {
         <Routes>
             <Route path="/" element={<WelcomePage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/*" element={<PrivateRoutes />} />
         </Routes>
     );
