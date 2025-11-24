@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const GET = (url, id, data, callback) => {
-    axios.get(!id ? url : url + id, {params: data || {}})
+export const GET = (url, id, data, callback, credentials=true) => {
+    axios.get(!id ? url : url + id, {params: data || {}, withCredentials: credentials})
         .then(response => callback(response.data))
 }
 export const POST = (url, data, callback) => {
