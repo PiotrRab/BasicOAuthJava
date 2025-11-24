@@ -10,7 +10,7 @@ import MainLayout from "../../layouts/mainLayout/MainLayout";
 const LoginPage = () => {
     const navigate = useNavigate();
 
-    const login = (data, callback) => POST('/auth/login', data, callback)
+    const login = (data, callback) => POST('/auth/login', data, callback, false)
 
     const formik = useFormik({
         initialValues: {

@@ -11,7 +11,7 @@ const RegisterPage = () => {
 
     const navigate = useNavigate();
 
-    const login = (data, callback) => POST('/auth/register', data, callback)
+    const login = (data, callback) => POST('/auth/register', data, callback, false)
 
     const formik = useFormik({
         initialValues: {

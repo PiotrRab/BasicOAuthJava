@@ -30,9 +30,10 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserModel user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
-
+        String password = user.getPassword() != null ? user.getPassword() : "";
         return User.builder()
                 .username(user.getEmail())
+                .password(password)
                 .authorities(new SimpleGrantedAuthority(user.getRole().name()))
                 .build();
     }

@@ -47,7 +47,7 @@ public class AuthController {
 
         ResponseCookie newAccessCookie = ResponseCookie.from("accessToken", newAccess)
                 .httpOnly(true)
-                .secure(true)
+                .secure(false)
                 .sameSite("Lax")
                 .path("/")
                 .maxAge(900)
@@ -61,16 +61,16 @@ public class AuthController {
     @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletResponse response) {
 
-        Cookie access = new Cookie("access_token", null);
+        Cookie access = new Cookie("accessToken", null);
         access.setPath("/");
         access.setHttpOnly(true);
-        access.setSecure(true);
+        access.setSecure(false);
         access.setMaxAge(0);
 
-        Cookie refresh = new Cookie("refresh_token", null);
+        Cookie refresh = new Cookie("refreshToken", null);
         refresh.setPath("/");
         refresh.setHttpOnly(true);
-        refresh.setSecure(true);
+        refresh.setSecure(false);
         refresh.setMaxAge(0);
 
         response.addCookie(access);
@@ -91,7 +91,7 @@ public class AuthController {
 
         ResponseCookie accessCookie = ResponseCookie.from("accessToken", accessToken)
                 .httpOnly(true)
-                .secure(true)
+                .secure(false)
                 .sameSite("Lax")
                 .path("/")
                 .maxAge(900)
@@ -99,7 +99,7 @@ public class AuthController {
 
         ResponseCookie refreshCookie = ResponseCookie.from("refreshToken", refreshToken)
                 .httpOnly(true)
-                .secure(true)
+                .secure(false)
                 .sameSite("Strict")
                 .path("/")
                 .maxAge(7 * 24 * 60 * 60)

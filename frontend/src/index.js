@@ -24,6 +24,11 @@ axios.interceptors.response.use(
                 await axios.post("/auth/refresh", {});
                 return axios(originalRequest);
             } catch (err) {
+                try {
+                    await axios.post("/api/auth/logout", {});
+                } catch (logoutErr) {
+                }
+
                 window.location.href = "/login";
                 return Promise.reject(err);
             }
