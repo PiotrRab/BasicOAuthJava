@@ -1,0 +1,42 @@
+@import "../../variables";
+
+
+.button {
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  gap: 10px;
+
+  &.login {
+    background: $primary-color;
+    color: #fff;
+    font-weight: bold;
+
+    &:hover {
+      background: $primary-color-hover;
+    }
+  }
+
+  &.edit {
+    background-color: $button-edit;
+    color: $white-color;
+
+    &:hover {
+      background: $button-edit-hover;
+    }
+  }
+
+  &.delete {
+    background-color: $button-delete;
+    color: $white-color;
+
+    &:hover {
+      background: $button-delete-hover;
+    }
+  }
+}
+

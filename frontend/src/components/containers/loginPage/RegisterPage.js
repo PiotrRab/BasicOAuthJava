@@ -34,14 +34,14 @@ const RegisterPage = () => {
                             formik={formik}
                             name="email"
                             type="email"
-                            placeholder="Adres email"
+                            placeholder="Email"
                         />
                         <Input
-                            label="Hasło"
+                            label="Password"
                             formik={formik}
                             name="password"
                             type="password"
-                            placeholder="Hasło"
+                            placeholder="password"
                         />
                     </div>
                     <Button type="submit" className="login" onClick={() => formik.handleSubmit()}>

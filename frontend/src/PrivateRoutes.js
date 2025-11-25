@@ -1,14 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {Navigate, Route, Routes} from "react-router-dom";
+import React from 'react';
+import {Route, Routes} from "react-router-dom";
 import PrivateLayout from "./components/layouts/mainLayout/PrivateLayout";
-import Dashboard from "./components/containers/dashboard/Dashboard";
-import {GET} from "./appConfig/Endpoint";
+import Users from "./components/containers/users/Users";
 
 const PrivateRoutes = () => {
     return (
         <PrivateLayout>
             <Routes>
-                <Route path="/dashboard" element={<Dashboard/>}/>
+                <Route path="/users" element={<Users/>}/>
             </Routes>
         </PrivateLayout>
     );

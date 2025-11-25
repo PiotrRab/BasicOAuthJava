@@ -13,14 +13,14 @@ const LoginButton = ({authenticated}) => {
             {!authenticated ?
                 <div className="button-container">
                     <Button className="login" onClick={()=>navigate('/register')}>
-                        Zarejstruj się
+                        Register
                     </Button>
                     <Button className="login" onClick={()=>navigate('/login')}>
-                        Zaloguj się
+                        Login
                     </Button>
                 </div> :
                 <Button className="logout" onClick={logout}>
-                    Wyloguj się
+                    Logut
                 </Button>
             }
         </div>

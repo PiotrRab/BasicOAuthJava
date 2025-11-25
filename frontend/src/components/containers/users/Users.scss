@@ -1,0 +1,12 @@
+.dashboard {
+  .table{
+    .actions{
+      width: 200px;
+      .button-container{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+    }
+  }
+}

@@ -1,8 +1,6 @@
 import React from 'react';
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import './NavBar.scss';
-import {GET, POST} from "../../../appConfig/Endpoint";
-import {useFormik} from "formik";
 import LoginButton from "./LoginButton";
 import {useSelector} from "react-redux";
 
@@ -15,8 +13,8 @@ const PrivateNavBar = () => {
                 <Link to="/" className="navbar-logo">
                     Starter
                 </Link>
-                <Link to="/dashboard" className="nav-link">
-                    Dashboard
+                <Link to="/users" className="nav-link">
+                    Users
                 </Link>
                 <LoginButton authenticated={authenticated}/>
             </div>

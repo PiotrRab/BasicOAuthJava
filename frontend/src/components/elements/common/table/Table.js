@@ -13,7 +13,7 @@ const Table = ({ columns, data, className }) => {
             {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map(column => (
-                        <th {...column.getHeaderProps()}>
+                        <th {...column.getHeaderProps()} className={column.columnClass}>
                             {column.render("Header")}
                         </th>
                     ))}
@@ -25,9 +25,9 @@ const Table = ({ columns, data, className }) => {
             {rows.map(row => {
                 prepareRow(row);
                 return (
-                    <tr {...row.getRowProps()}>
+                    <tr {...row.getRowProps()} >
                         {row.cells.map(cell => (
-                            <td {...cell.getCellProps()}>
+                            <td {...cell.getCellProps()} className={cell.column.columnClass}>
                                 {cell.render("Cell")}
                             </td>
                         ))}
