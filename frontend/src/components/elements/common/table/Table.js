@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { useTable } from "react-table";
+import {useTable} from "react-table";
 import "./Table.scss";
 
 const Table = ({ columns, data, className }) => {

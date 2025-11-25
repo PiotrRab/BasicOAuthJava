@@ -2,13 +2,15 @@ package com.basic.auth;
 
 import com.basic.config.JwtTokenProvider;
 import com.basic.users.UserModel;
+import com.basic.users.UserRepository;
 import com.basic.users.UserResponse;
 import com.basic.users.UserRole;
-import com.basic.users.UserRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.*;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;

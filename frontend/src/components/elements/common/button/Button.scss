@@ -38,5 +38,15 @@
       background: $button-delete-hover;
     }
   }
+  &.add {
+    background: $primary-color;
+    color: #fff;
+    font-weight: bold;
+
+    &:hover {
+      background: $primary-color-hover;
+    }
+  }
+
 }
 

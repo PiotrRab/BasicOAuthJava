@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 const ModalBody = ({children, className}) => {
     return (
-        <div className={classNames('modal-body', className)}>
+        <div className={classNames('body', className)}>
             {children}
         </div>
     )

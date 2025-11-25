@@ -1,12 +1,8 @@
 package com.basic.users;
 
 import com.basic.auth.AccessCheck;
-import com.basic.auth.LoginRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -64,14 +60,16 @@ public class UserService implements UserDetailsService {
         UserModel currentUser = accessCheck.currentUser();
         boolean authorized = accessCheck.isAdmin() || accessCheck.isOwner();
 
-        if (!currentUser.getId().equals(id) || !authorized) {
+        if (!authorized && !currentUser.getId().equals(id)) {
             throw new RuntimeException("You can only update your own account.");
         }
 
         UserModel user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
 
         user.setEmail(request.getEmail());
-        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        if (request.getPassword() != null){
+            user.setPassword(passwordEncoder.encode(request.getPassword()));
+        }
         user.setRole(UserRole.valueOf(request.getRole().toUpperCase()));
 
         return mapToResponse(userRepository.save(user));

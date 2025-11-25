@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import React, {useEffect} from "react";
+import {Route, Routes, useLocation} from "react-router-dom";
 import PrivateRoutes from "./PrivateRoutes";
 import LoginPage from "./components/containers/loginPage/LoginPage";
 import WelcomePage from "./components/containers/welcomePage/WelcomePage";
