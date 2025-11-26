@@ -17,5 +17,5 @@ spring.flyway.locations=classpath:db/migration
 
 com.base.jwt-secret=${JWT_SECRET:veknUvIkwd/XjuS6NS2kfUw1njibhk2JsaxxkHtiAmOAk33Q1qO/0i2eyFQ/5mpYemSJNZ33i6PuibarXS99NQ==}
 com.base.refresh-secret=${JWT_REFRESH_SECRET:D9lnjBqEW9zgIwJ1Ij2lWJPmW26aS1UztapNGxuZdEVfo8k8lAh/sdd4lsOWJtBeYuOyVzwNt/r1+eFPROAcyw==}
-com.base.jwt-expiration=900000
-com.base.refresh-expiration=604800000
+com.base.jwt-expiration=${JWT_EXPIRATION:900000}
+com.base.refresh-expiration=${JWT_REFRESH_EXPIRATION:604800000}
