@@ -1,0 +1,26 @@
+.tags-list {
+  .card-header {
+    border-bottom: 2px solid var(--secondary-color);
+  }
+
+  .button-container {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+
+    .button.edit {
+      color: var(--secondary-color);
+      &:hover {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+    }
+
+    .button.delete {
+      color: var(--text-muted);
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+  }
+}

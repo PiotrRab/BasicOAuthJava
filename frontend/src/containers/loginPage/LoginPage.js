@@ -1,17 +1,16 @@
 import React from 'react';
-import Input from "../../elements/inputComponents/input/Input";
-import Button from "../../elements/common/button/Button";
-import MainLayout from "../../layouts/mainLayout/MainLayout";
-import {useNavigate} from "react-router-dom";
-import {POST} from "../../../appConfig/Endpoint";
+import Input from "../../components/elements/common/input/Input";
 import {useFormik} from "formik";
 import './LoginPage.scss';
+import Button from "../../components/elements/common/button/Button";
+import {useNavigate} from "react-router-dom";
+import {POST} from "../../appConfig/Endpoint";
+import MainLayout from "../../components/layouts/mainLayout/MainLayout";
 
-const RegisterPage = () => {
-
+const LoginPage = () => {
     const navigate = useNavigate();
 
-    const login = (data, callback) => POST('/auth/register', data, callback, false)
+    const login = (data, callback) => POST('/auth/login', data, callback, false)
 
     const formik = useFormik({
         initialValues: {
@@ -27,7 +26,7 @@ const RegisterPage = () => {
         <MainLayout>
             <div className="login-page">
                 <div className="card">
-                    <h1 className="title">Zarejestruj się</h1>
+                    <h1 className="title">Zaloguj się</h1>
                     <div className="input-wrapper">
                         <Input
                             label="Email"
@@ -45,7 +44,7 @@ const RegisterPage = () => {
                         />
                     </div>
                     <Button type="submit" className="login" onClick={() => formik.handleSubmit()}>
-                        Register
+                        Login
                     </Button>
                 </div>
             </div>
@@ -53,4 +52,4 @@ const RegisterPage = () => {
     );
 };
 
-export default RegisterPage;
+export default LoginPage;

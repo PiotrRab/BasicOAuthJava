@@ -1,12 +1,12 @@
 import React, {useEffect} from "react";
 import {Route, Routes, useLocation} from "react-router-dom";
 import PrivateRoutes from "./PrivateRoutes";
-import LoginPage from "./components/containers/loginPage/LoginPage";
-import WelcomePage from "./components/containers/welcomePage/WelcomePage";
+import LoginPage from "./containers/loginPage/LoginPage";
+import WelcomePage from "./containers/welcomePage/WelcomePage";
 import { GET } from "./appConfig/Endpoint";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthenticated } from "./store";
-import RegisterPage from "./components/containers/loginPage/RegisterPage";
+import RegisterPage from "./containers/loginPage/RegisterPage";
 
 const App = () => {
     const location = useLocation();

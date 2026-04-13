@@ -1,9 +1,9 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {DELETE, GET} from "../../../appConfig/Endpoint";
-import Table from "../../elements/common/table/Table";
-import Card from "../../layouts/card/Card";
-import Button from "../../elements/common/button/Button";
-import CardHeader from "../../layouts/card/CardHeader";
+import {DELETE, GET} from "../../appConfig/Endpoint";
+import Table from "../../components/elements/common/table/Table";
+import Card from "../../components/layouts/card/Card";
+import Button from "../../components/elements/common/button/Button";
+import CardHeader from "../../components/layouts/card/CardHeader";
 import './Users.scss'
 import UserEditModal from "./UserEditModal";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import MainLayout from "../../layouts/mainLayout/MainLayout";
+import MainLayout from "../../components/layouts/mainLayout/MainLayout";
 
 const WelcomePage = () => {
     return (

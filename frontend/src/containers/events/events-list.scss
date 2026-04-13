@@ -1,0 +1,73 @@
+.events-list {
+  .card-header {
+    border-bottom: 2px solid var(--secondary-color);
+  }
+
+  .button-container {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+
+    .button.edit {
+      color: var(--secondary-color);
+      &:hover {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+    }
+
+    .button.delete {
+      color: var(--text-muted);
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+  }
+}
+
+.event-edit-modal {
+  .guests-selection {
+    margin-top: 20px;
+
+    .label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      max-height: 200px;
+      overflow-y: auto;
+      padding: 15px;
+      background: #fdfdfd;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+
+      .checkbox-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.9rem;
+
+        input[type="checkbox"] {
+          accent-color: var(--secondary-color);
+          width: 18px;
+          height: 18px;
+          cursor: pointer;
+        }
+
+        label {
+          cursor: pointer;
+          font-weight: 500;
+          color: var(--text-main);
+        }
+      }
+    }
+  }
+}

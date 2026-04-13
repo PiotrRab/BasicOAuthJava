@@ -1,12 +1,12 @@
 import React from 'react';
-import Modal from "../../layouts/modal/Modal";
-import ModalHeader from "../../layouts/modal/modalHeader/ModalHeader";
-import ModalBody from "../../layouts/modal/modalBody/ModalBody";
-import ModalFooter from "../../layouts/modal/modalFooter/ModalFooter";
-import Button from "../../elements/common/button/Button";
-import Input from "../../elements/inputComponents/input/Input";
+import Modal from "../../components/layouts/modal/Modal";
+import ModalHeader from "../../components/layouts/modal/modalHeader/ModalHeader";
+import ModalBody from "../../components/layouts/modal/modalBody/ModalBody";
+import ModalFooter from "../../components/layouts/modal/modalFooter/ModalFooter";
+import Button from "../../components/elements/common/button/Button";
+import Input from "../../components/elements/common/input/Input";
 import {useFormik} from "formik";
-import {POST, PUT} from "../../../appConfig/Endpoint";
+import {POST, PUT} from "../../appConfig/Endpoint";
 
 const UserEditModal = ({user, onClose}) => {
 
